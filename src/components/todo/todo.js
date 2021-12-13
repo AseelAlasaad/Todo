@@ -1,7 +1,8 @@
 import React, {useEffect, useState, useContext } from 'react';
 import useForm from '../../hooks/form.js';
 import "@blueprintjs/core/lib/css/blueprint.css";
-import { Button, Card,FormGroup,InputGroup ,Elevation } from "@blueprintjs/core";
+// import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+import { Button, Card,FormGroup,InputGroup ,Elevation,Switch } from "@blueprintjs/core";
 
 import { v4 as uuid } from 'uuid';
 import './style.css';
@@ -10,7 +11,8 @@ const ToDo = (props) => {
 
   let settingValue=useContext(SettingContext);
   const [list, setList] = useState([]);
-  const[endpage,setendpage]=useState(settingValue.pagination);
+  const[endpage,setendpage]=useState(settingValue.pagination);//2
+  const[show,setShow]=useState(settingValue.hide);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
 
@@ -66,6 +68,10 @@ const ToDo = (props) => {
 
 
   }
+  const showIfComplete=(e)=>{
+    e.preventDefault();
+    setIncomplete(true)
+  }
 
   return (
     <>
@@ -77,7 +83,7 @@ const ToDo = (props) => {
           <h2>Add To Do Item</h2>
         <form onSubmit={handleSubmit}>
         <FormGroup label="To Do Item" >
-          <InputGroup onChange={handleChange} name="text" type="text" placeholder="Item Details"></InputGroup>
+          <InputGroup onChange={handleChange} name="text" type="text" placeholder="Item Details"  ></InputGroup>
       
           </FormGroup>
           <FormGroup label="Assigned To" >
@@ -89,12 +95,15 @@ const ToDo = (props) => {
           </InputGroup>
       
           </FormGroup>
-         
+          <FormGroup>
+          </FormGroup>
+        
             <Button  className="bp3-intent-primary"   type="submit">Add Item</Button>
-          
         </form>
-     
+      
       </Card>
+    
+ 
 </div>
 
 
@@ -104,7 +113,9 @@ const ToDo = (props) => {
           <p>{item.text}</p>
           <p><small>Assigned to: {item.assignee}</small></p>
           <p><small>Difficulty: {item.difficulty}</small></p>
-          <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
+          <button onClick={()=> deleteItem((item.id))}> delete</button>
+          {/* <Switch checked={settingValue.hide === true} label="Change" onChange={settingValue.toggleComplete} /> */}
+          <div onClick={() => toggleComplete(item.id)}><button>{item.complete ? "Complete" : "Pending"}</button></div>
           <hr />
         </div>
       ))}
