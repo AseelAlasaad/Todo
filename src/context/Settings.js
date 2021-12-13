@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 export const SettingContext = React.createContext();
 
 
-function Settings({children}){
-const [pagination, setPagination]=useState(3);
+function Settings(props){
+const [pagination, setPagination]=useState(2);
 const [hide, setHide]=useState(false);
 
-const value={
-    pagination:3,
+const state={
+    pagination:2,
     hide:false
 }
 
 return(
-    <SettingContext.Provider value={value}>
-        {children}
+    <SettingContext.Provider value={state}>
+        {props.children}
     </SettingContext.Provider>
 )
 

@@ -10,7 +10,7 @@ const ToDo = (props) => {
 
   let settingValue=useContext(SettingContext);
   const [list, setList] = useState([]);
-  // const[endpage,setendpage]=useState(settingValue.pagination);
+  const[endpage,setendpage]=useState(settingValue.pagination);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
 
@@ -46,7 +46,7 @@ const ToDo = (props) => {
   }, [list]);
 
   const paginate=(e)=>{
-    e.preventDefault();
+    
     let start=endpage - settingValue.pagination;
     return list.slice(start,endpage); 
 
@@ -99,7 +99,7 @@ const ToDo = (props) => {
 
 
     
-{list.map(item => (
+{paginate().map(item => (
         <div key={item.id}>
           <p>{item.text}</p>
           <p><small>Assigned to: {item.assignee}</small></p>
