@@ -17,11 +17,11 @@ class Header extends React.Component {
           <Navbar.Group align={Alignment.LEFT}>
             <Navbar.Heading>To Do List</Navbar.Heading>
             <Navbar.Divider />
-            <a href="setting">
+            <a href="Settings">
               <Button className="bp3-minimal" icon="settings" text="Settings" />
 
             </a>
-            <a href="/todo-app">
+            <a href="/Home">
               <Button className="bp3-minimal" icon="home" text="Home" />
 
             </a>

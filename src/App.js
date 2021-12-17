@@ -14,19 +14,18 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-                <Header />
         <Router>
+                <Header/>
           <Switch>
 
             <Settings>
 
-              <Route exact path="/setting">
-
-                <UpdateSetting />
+              <Route exact path="/Settings">
+                <UpdateSetting/>
               </Route>
-              <Route exact path="/todo-app">
+              <Route exact path="/Home">
                 {/* <Header /> */}
-                <Todo />
+                <Todo/>
               </Route>
 
             </Settings>
