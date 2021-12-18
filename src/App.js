@@ -7,6 +7,8 @@ import UpdateSetting from './components/todo/UpdateSetting.js';
 import LoginContext from './context/LoginContext';
 import Login from './components/login/Login';
 import Auth from "./components/login/Auth";
+import { ContextLogin } from './context/LoginContext';
+import { When } from 'react-if';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,11 +18,11 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <Router>
-                <Header/>
                 <LoginContext>
                   <Login/>
                   <Auth capability="read">
+        <Router>
+                <Header/>
                   {/* <Auth> */}
                    
           <Switch>
@@ -39,9 +41,9 @@ export default class App extends React.Component {
             </Settings>
 
           </Switch>
+        </Router>
                   </Auth>
                 </LoginContext>
-        </Router>
 
       </>
 
