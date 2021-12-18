@@ -18,12 +18,28 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-                <LoginContext>
+
+
+<LoginContext>
+<Login/>
+  <Auth capability="read">
+      <Settings>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/Home" component={Todo} />
+            <Route exact path="/settings" component={UpdateSetting} />
+          </Switch>
+        </Router>
+      </Settings>
+      </Auth>
+    </LoginContext>
+                {/* <LoginContext>
                   <Login/>
                   <Auth capability="read">
-        <Router>
+             <Router>
                 <Header/>
-                  {/* <Auth> */}
+                 
                    
           <Switch>
             <Settings>
@@ -34,16 +50,16 @@ export default class App extends React.Component {
                
               </Route>
               <Route exact path="/Home">
-                {/* <Header /> */}
+                
                 <Todo/>
               </Route>
 
-            </Settings>
+            </Settings> */}
 
-          </Switch>
-        </Router>
-                  </Auth>
-                </LoginContext>
+          {/* </Switch> */}
+        {/* </Router> */}
+                  {/* </Auth> */}
+                {/* </LoginContext> */}
 
       </>
 
