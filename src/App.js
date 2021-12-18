@@ -20,7 +20,7 @@ export default class App extends React.Component {
       <>
 
 
-<LoginContext>
+ <LoginContext>
 <Login/>
   <Auth capability="read">
       <Settings>
@@ -33,33 +33,24 @@ export default class App extends React.Component {
         </Router>
       </Settings>
       </Auth>
-    </LoginContext>
+    </LoginContext> 
                 {/* <LoginContext>
                   <Login/>
                   <Auth capability="read">
-             <Router>
-                <Header/>
+            
+                <Header/> */}
                  
                    
-          <Switch>
-            <Settings>
+          {/* <Switch> */}
+            {/* <Settings>
 
-              <Route exact path="/Settings">
                 <UpdateSetting/>
-           
-               
-              </Route>
-              <Route exact path="/Home">
                 
                 <Todo/>
-              </Route>
 
-            </Settings> */}
-
-          {/* </Switch> */}
-        {/* </Router> */}
-                  {/* </Auth> */}
-                {/* </LoginContext> */}
+            </Settings>
+                 </Auth>
+                </LoginContext>  */}
 
       </>
 
